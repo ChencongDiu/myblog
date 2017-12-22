@@ -4,7 +4,9 @@
   "description": "my blog",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "start": "NODE_ENV=production pm2 start index.js --name 'myblog'",
+    "heroku": "NODE_ENV=production node --harmony index"
   },
   "author": "Chencong Du",
   "license": "ISC",
@@ -23,5 +25,9 @@
     "objectid-to-timestamp": "^1.3.0",
     "sha1": "^1.1.1",
     "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "supertest": "^3.0.0"
   }
 }

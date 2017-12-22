@@ -1,8 +1,8 @@
 /*
 * @Author: x
 * @Date:   2017-12-14 19:32:29
-* @Last Modified by:   x
-* @Last Modified time: 2017-12-20 17:52:29
+* @Last Modified by:   ChencongDiu
+* @Last Modified time: 2017-12-22 17:44:30
 */
 
 const path = require('path')
@@ -15,7 +15,7 @@ const routes = require('./routes')
 const pkg = require('./package')
 const winston = require('winston')
 const expressWinston = require('express-winston')
-
+const port = process.env.PORT || config.port
 const app = express()
 
 // 设置模板目录
@@ -95,6 +95,6 @@ app.use(function (err, req, res, next) {
 })
 
 // 监听端口，启动程序
-app.listen(config.port, function () {
-  console.log(`${pkg.name} listening on port ${config.port}`)
+app.listen(port, function () {
+  console.log(`${pkg.name} listening on port ${port}`)
 })
